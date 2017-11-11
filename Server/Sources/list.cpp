@@ -1,5 +1,4 @@
 #include "list.cpp"
-#include "ClockCalendar.cpp"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -9,7 +8,6 @@ using namespace std;
 list::list()
 {
 	list<user> lUsers;
-	ClockCalendar c;
 }
 //Metodo para a listagem dos users da list
 void list::listUsers()
