@@ -1,5 +1,5 @@
-#include "user.cpp"
-#include <string>
+#include "user.h"
+//#include <string>
 #include <iostream>
 using namespace std;
 
@@ -15,10 +15,10 @@ void user::setPeriod(int period_par)
 {
     period = period_par;
 }
-void user::setName(string name_par)
+/*void user::setName(string name_par)
 {
     name = name_par;
-}
+}*/
 
 int user::getId()
 {
@@ -32,7 +32,7 @@ int user::getPeriod()
 {
     return period;
 }
-std:string user::getName()
+/*string user::getName()
 {
     return name;
-}
+}*/

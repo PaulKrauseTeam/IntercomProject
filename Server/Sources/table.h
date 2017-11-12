@@ -1,16 +1,16 @@
-#include <string>
+//#include <string>
 #include <vector>
-#include<list>
-#include "user.h"
+#include <list>
+#include "user.cpp"
 using namespace std;
 
-class list
+class table
 {
    // private:
     public:
-    list();
+    table();
     list<user> lUsers;
-    void includeUser(int id, int contact, int period, string name);
+    void includeUser(int id, int contact, int period);/*, string name);*/
     void excludeUser(int id);
     void consultUser(int id);
     void alterUser(int id);

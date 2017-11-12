@@ -1,32 +1,30 @@
-#include "list.h"
+#include "table.h"
 #include <iostream>
 #include <vector>
-#include <string>
 #include <list>
 using namespace std;
 
-list::list()
+table::table()
 {
 	list<user> lUsers;
 }
 //Metodo para a listagem dos users da list
-void list::listUsers()
+void table::listUsers()
 {
     list<user>::iterator it;
 	it = lUsers.begin();
 	while(it != lUsers.end())
 	{
- 	   cout << "User Name: " << it->getName() << endl << endl;
-       cout << "User Id: " << it->getId() << endl;
-       cout << "User Contact: " << it->getContact() << endl;
-       cout << "User Period: " << it->getPeriod() << endl;
-	   it++;	
+ 	   cout << "User id: " << it->getId() << endl;
+       cout << "Contact: " << it->getContact() << endl;
+       cout << "Period: " << it->getPeriod() << endl;
+       it++;	
 	}
 	
 }
 //Metodo para a inclusao de users
 
-void list::includeUser(int id, int contact, int period, string name)
+void table::includeUser(int id, int contact, int period)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
@@ -36,7 +34,7 @@ void list::includeUser(int id, int contact, int period, string name)
 	{
 		if (id == it->getId())
 		{
-			cout << "Repeated Id! Error!" << endl;
+			cout << "Doubled Id! Error" << endl;
 			termina = true;
 		}
 		it++;
@@ -47,16 +45,13 @@ void list::includeUser(int id, int contact, int period, string name)
 		it->setId(id);
 		it->setContact(contact);
 		it->setPeriod(period);
-		it->setName(name);
 		lUsers.push_front(*it);
-		cout << "User registered with sucess!" << endl;
-		c.advance();
+		cout << "User registered!" << endl;
 	}
     
 }
-//Metodo para a exclusao de um user. Caso a matricula digitada for correta, libera-se a escrita atraves
-//do vetor de controle 'valido'
-void list::excludeUser(int id)
+//Exclusao do user
+void table::excludeUser(int id)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
@@ -80,8 +75,8 @@ void list::excludeUser(int id)
 	
 
 }
-//Metodo para consulta de apenas um id
-void list::consultUser(int id)
+//Consultar por id
+void table::consultUser(int id)
 {
  	list<user>::iterator it;
 	it = lUsers.begin();
@@ -89,13 +84,12 @@ void list::consultUser(int id)
 	
 	while(it != lUsers.end())
 	{
-		if (id == it->getid())
+		if (id == it->getId())
 		{
             found = true;
-            cout << "Name: " << it->getName() << endl;
+            cout << "Contact: " << it->getContact() << endl;
             cout << "Period: " << it->getPeriod() << endl;
-            cout << "Contact: " << it->getContact() << endl << endl;
-    	}
+        }
 		it++;
 	}
 	if (!found)
@@ -105,22 +99,25 @@ void list::consultUser(int id)
 	
 	
 }
-//Alteracao do período de um determinado usuario
-void list::alterUser(int id)
+//Alteracao do periodo e do contato
+void table::alterUser(int id)
 {
- 	list<user>::iterator it;
+    list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
 	int period_new;
+	int contact_new;
 	
 	while(it != lUsers.end())
 	{
-		if (id == it->getid())
+		if (id == it->getId())
 		{
             found = true;
-            cout << "Type new period "; cin >> period_new;
+            cout << "New period: "; cin >> period_new;
+            cout << "\nNew contact: "; cin >> contact_new;
+            it->setContact(contact_new);
             it->setPeriod(period_new);
-        }
+		}
 		it++;
 	}
 	if (!found)
