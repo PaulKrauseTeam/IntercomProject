@@ -1,4 +1,4 @@
-#include "list.cpp"
+#include "list.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -20,8 +20,6 @@ void list::listUsers()
        cout << "User Id: " << it->getId() << endl;
        cout << "User Contact: " << it->getContact() << endl;
        cout << "User Period: " << it->getPeriod() << endl;
-       it->readClock();
-       it->readCalendar(); 
 	   it++;	
 	}
 	
@@ -110,7 +108,7 @@ void list::consultUser(int id)
 //Alteracao do período de um determinado usuario
 void list::alterUser(int id)
 {
-    list<user>::iterator it;
+ 	list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
 	int period_new;
