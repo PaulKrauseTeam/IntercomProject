@@ -1,0 +1,24 @@
+
+Users Table with all users. Columns:
+- ID (Primary Key);
+- Email;
+- Name;
+- Phone Number;
+- Status;
+
+Each user will have a unique table for him, User History, that will store every time he enters and leaves the room. Columns:
+- ID (Primary Key);
+- Entry Date;
+- Entry Time;
+- Exit Date;
+- Exit Time;
+
+There will be two other tables containing users entry and exit time permissions. Columns:
+  - ID: This ID will be the same ID as the Users Table;
+  - Mon;
+  - Tue;
+  - Wed;
+  - Thu;
+  - Fri;
+  - Sat;
+  - Sun;
