@@ -6,16 +6,19 @@ class user
 {
      private:
      int id;
-     int contact;
+     int num;
+     string mail;
      int period;
-  //   std:string name;
+     string name;
      public:
      void setId(int id);
-     void setContact(int contact);
+     void setNum(int num);
+     void setMail(string mail);
      void setPeriod(int period);
-    // void setName(std:string name);
+     void setName(string name);
      int getId();
-     int getContact();
+     int getNum();
+     string getMail();
      int getPeriod();
-//	std:string getName();
+	 string getName();
 };

@@ -1,6 +1,6 @@
 //#include "user.cpp"
 #include "table.cpp"
-//#include <string>
+#include <string>
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
@@ -10,8 +10,9 @@ int main()
 {
 	bool Exit = false;
 	int option, id;
-	int period, contact;
-	//std:string name;
+	int period, num;
+	string name;
+    string mail;
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
     do
@@ -29,12 +30,16 @@ int main()
          switch (option)
          {
              case 1:
+                 cout << "\nType the name: ";
+                 cin.ignore();
+                 getline(cin,name);
                  cout << "\nType the Id: "; cin >> id;
-                 cout << "Type the period: "; cin >> period;
-                 cout << "Type the contact: "; cin >> contact;
-                 /*cout << "Type the name: ";
-                 getline (cin, name);
-                 */regUser.includeUser(id,period,contact/*,name*/);
+                 cout << "\nType the period: "; cin >> period;
+                 cout << "\nType the number: "; cin >> num;
+                 cout << "\nType the e-mail: ";
+                 cin.ignore();
+                 getline(cin,mail);
+                 regUser.includeUser(id,num,mail,period,name);
                  break;
              case 2:
                 cout << "\nType the Id of the user you wish to consult: "; cin >> id;

@@ -1,4 +1,4 @@
-//#include <string>
+#include <string>
 #include <vector>
 #include <list>
 #include "user.cpp"
@@ -10,7 +10,7 @@ class table
     public:
     table();
     list<user> lUsers;
-    void includeUser(int id, int contact, int period);/*, string name);*/
+    void includeUser(int id, int num, string mail, int period, string name);
     void excludeUser(int id);
     void consultUser(int id);
     void alterUser(int id);
