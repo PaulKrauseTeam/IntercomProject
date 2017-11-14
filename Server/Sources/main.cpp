@@ -1,6 +1,6 @@
 //#include "user.cpp"
 #include "table.cpp"
-#include <string>
+#include <string.h>
 //#include <vector>
 #include <stdlib.h>
 #include <iostream>
@@ -37,14 +37,12 @@ int main()
          switch (option)
          {
              case 1:
-                 cout << "\nType the name: ";
-                 cin.ignore();
-                 getline(cin,name);
-                 cout << "Type the Id: "; cin >> id;
+
+                 cout << "\nType the Id: "; cin >> id;
                  cout << "Type the phone number: "; cin >> num;
-                 cout << "Type the e-mail: "; cin >> mail;
-                 //cin.ignore();
-                 //getline(cin,mail);
+                 cout << "Type the e-mail: ";
+                 cin.ignore();
+                 getline(cin,mail);
                  cout << "Type the entry time of monday: "; cin >> monEnter;
                  cout << "Type the exit time of monday: "; cin >> monExit;
                  cout << "Type the entry time of tuesday: "; cin >> tueEnter;
@@ -57,8 +55,11 @@ int main()
                  cout << "Type the exit time of friday: "; cin >> friExit;
                  cout << "Type the entry time of saturday: "; cin >> satEnter;
                  cout << "Type the exit time of saturday: "; cin >> satExit;
-                 cout << "Type the entry time of sunday: "; cin >> friEnter;
-                 cout << "Type the exit time of sunday: "; cin >> friExit;
+                 cout << "Type the entry time of sunday: "; cin >> sunEnter;
+                 cout << "Type the exit time of sunday: "; cin >> sunExit;
+                 cout << "Type the name: ";
+                 cin.ignore();
+                 getline(cin,name);
                  regUser.includeUser(id,num,mail, monEnter, monExit,
                                                   tueEnter, tueExit,
                                                   wedEnter, wedExit,

@@ -1,6 +1,6 @@
 #include "table.h"
 #include <iostream>
-#include <string>
+#include <string.h>
 #include <vector>
 #include <list>
 using namespace std;
@@ -42,12 +42,12 @@ void table::listUsers()
 //Metodo para a inclusao de users
 
 void table::includeUser(int id, int num, string mail, int monEnter, int monExit,
-                                                   int tueEnter, int tueExit,
-                                                   int wedEnter, int wedExit,
-                                                   int thuEnter, int thuExit,
-                                                   int friEnter, int friExit,
-                                                   int satEnter, int satExit,
-                                                   int sunEnter, int sunExit, string name)
+                                                   	  int tueEnter, int tueExit,
+                                                      int wedEnter, int wedExit,
+                                                      int thuEnter, int thuExit,
+                                                      int friEnter, int friExit,
+                                                      int satEnter, int satExit,
+                                                      int sunEnter, int sunExit, string name)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
@@ -193,6 +193,7 @@ void table::alterUser(int id)
             cout << "New e-mail: ";
             cin.ignore();
             getline(cin,mail_new);
+            
             it->setNum(num_new);
             it->setMail(mail_new);
             it->setMonEnter(monEnter_new);
