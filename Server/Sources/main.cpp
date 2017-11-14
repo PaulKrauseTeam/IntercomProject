@@ -1,7 +1,7 @@
 //#include "user.cpp"
 #include "table.cpp"
 #include <string>
-#include <vector>
+//#include <vector>
 #include <stdlib.h>
 #include <iostream>
 using namespace std;
@@ -10,7 +10,14 @@ int main()
 {
 	bool Exit = false;
 	int option, id;
-	int period, num;
+	int num;
+    int monEnter, monExit;
+    int tueEnter, tueExit;
+    int wedEnter, wedExit;
+    int thuEnter, thuExit;
+    int friEnter, friExit;
+    int satEnter, satExit;
+    int sunEnter, sunExit;
 	string name;
     string mail;
 	table regUser;
@@ -33,13 +40,32 @@ int main()
                  cout << "\nType the name: ";
                  cin.ignore();
                  getline(cin,name);
-                 cout << "\nType the Id: "; cin >> id;
-                 cout << "\nType the period: "; cin >> period;
-                 cout << "\nType the number: "; cin >> num;
-                 cout << "\nType the e-mail: ";
-                 cin.ignore();
-                 getline(cin,mail);
-                 regUser.includeUser(id,num,mail,period,name);
+                 cout << "Type the Id: "; cin >> id;
+                 cout << "Type the phone number: "; cin >> num;
+                 cout << "Type the e-mail: "; cin >> mail;
+                 //cin.ignore();
+                 //getline(cin,mail);
+                 cout << "Type the entry time of monday: "; cin >> monEnter;
+                 cout << "Type the exit time of monday: "; cin >> monExit;
+                 cout << "Type the entry time of tuesday: "; cin >> tueEnter;
+                 cout << "Type the exit time of tuesday: "; cin >> tueExit;
+                 cout << "Type the entry time of wednesday: "; cin >> wedEnter;
+                 cout << "Type the exit time of wednesday: "; cin >> wedExit;
+                 cout << "Type the entry time of thursday: "; cin >> thuEnter;
+                 cout << "Type the exit time of thursday: "; cin >> thuExit;
+                 cout << "Type the entry time of friday: "; cin >> friEnter;
+                 cout << "Type the exit time of friday: "; cin >> friExit;
+                 cout << "Type the entry time of saturday: "; cin >> satEnter;
+                 cout << "Type the exit time of saturday: "; cin >> satExit;
+                 cout << "Type the entry time of sunday: "; cin >> friEnter;
+                 cout << "Type the exit time of sunday: "; cin >> friExit;
+                 regUser.includeUser(id,num,mail, monEnter, monExit,
+                                                  tueEnter, tueExit,
+                                                  wedEnter, wedExit,
+                                                  thuEnter, thuExit,
+                                                  friEnter, friExit,
+                                                  satEnter, satExit,
+                                                  sunEnter, sunExit, name);
                  break;
              case 2:
                 cout << "\nType the Id of the user you wish to consult: "; cin >> id;

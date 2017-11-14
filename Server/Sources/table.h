@@ -10,7 +10,13 @@ class table
     public:
     table();
     list<user> lUsers;
-    void includeUser(int id, int num, string mail, int period, string name);
+    void includeUser(int id, int num, string mail, int monEnter, int monExit,
+                                                   int tueEnter, int tueExit,
+                                                   int wedEnter, int wedExit,
+                                                   int thuEnter, int thuExit,
+                                                   int friEnter, int friExit,
+                                                   int satEnter, int satExit,
+                                                   int sunEnter, int sunExit, string name);
     void excludeUser(int id);
     void consultUser(int id);
     void alterUser(int id);
