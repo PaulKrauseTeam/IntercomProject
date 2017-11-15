@@ -1,5 +1,5 @@
 #include "user.h"
-#include <string.h>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -11,10 +11,10 @@ void user::setNum(int num_par)
 {
     num = num_par;
 }
-void user::setMail(string mail_par)
+/*void user::setMail(string mail_par)
 {
 	mail = mail_par;
-}
+}*/
 //Set period in and out
 void user::setMonEnter(int monEnter_par)
 {
@@ -71,12 +71,11 @@ void user::setSunEnter(int sunEnter_par)
 void user::setSunExit(int sunExit_par)
 {
 	sunExit = sunExit_par;
-}
-     
-void user::setName(string name_par)
+}     
+/*void user::setName(string name_par)
 {
     name = name_par;
-}
+}*/
 int user::getId()
 {
     return id;
@@ -85,10 +84,10 @@ int user::getNum()
 {
     return num;
 }
-string user::getMail()
+/*string user::getMail()
 {
 	return mail;
-}
+}*/
 //Get period in and out
 int user::getMonEnter()
 {
@@ -146,7 +145,7 @@ int user::getSunExit()
 {
 	return sunExit;
 }
-string user::getName()
+/*string user::getName()
 {
     return name;
-}
+}*/

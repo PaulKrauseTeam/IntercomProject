@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 #include <iostream>
 using namespace std;
 
@@ -7,7 +7,7 @@ class user
      private:
      int id;
      int num;
-     string mail;
+    // string mail;
      //Days:
      int monEnter;
      int monExit;
@@ -24,11 +24,11 @@ class user
      int sunEnter;
      int sunExit;
 
-     string name;
+     //string name;
      public:
      void setId(int id);
      void setNum(int num);
-     void setMail(string mail);
+    // void setMail(string mail);
      //Set period in and out
      void setMonEnter(int monEnter);
      void setMonExit(int monExit);
@@ -45,10 +45,10 @@ class user
      void setSunEnter(int sunEnter);
      void setSunExit(int sunExit);
      
-     void setName(string name);
+    // void setName(string name);
      int getId();
      int getNum();
-     string getMail();
+  //   string getMail();
      //Get period in and out
      int getMonEnter();
      int getMonExit();
@@ -65,5 +65,5 @@ class user
      int getSunEnter();
      int getSunExit();
      
-     string getName();
+     //string getName();
 };
