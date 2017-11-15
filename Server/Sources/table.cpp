@@ -16,7 +16,7 @@ void table::listUsers()
 	it = lUsers.begin();
 	while(it != lUsers.end())
 	{
- 	   //cout << "\nName: " << it ->getName() << endl;
+ 	   cout << "\nName: " << it ->getName() << endl;
  	   cout << "User id: " << it->getId() << endl;
        cout << "Phone number: " << it->getNum() << endl;
       // cout << "E-mail" << it->getMail() << endl;
@@ -46,7 +46,7 @@ void table::includeUser(int id, int num, /*string mail, */int monEnter, int monE
                                                       int thuEnter, int thuExit,
                                                       int friEnter, int friExit,
                                                       int satEnter, int satExit,
-                                                      int sunEnter, int sunExit/*, string name*/)
+                                                      int sunEnter, int sunExit, string name)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
@@ -81,7 +81,7 @@ void table::includeUser(int id, int num, /*string mail, */int monEnter, int monE
 		it->setSatExit(satExit);
 		it->setSunEnter(sunEnter);
 		it->setSunExit(sunExit);
-	//	it->setName(name);
+		it->setName(name);
 		lUsers.push_front(*it);
 		cout << "User registered!" << endl;
 	}
@@ -124,7 +124,7 @@ void table::consultUser(int id)
 		if (id == it->getId())
 		{
             found = true;
-        //    cout << "Name: " << it->getName() << endl;
+            cout << "Name: " << it->getName() << endl;
             cout << "Phone number: " << it->getNum() << endl;
        //     cout << "E-mail: " << it->getMail() <<endl;
             cout << "Entrance on Monday: " << it->getMonEnter() << endl;
@@ -173,7 +173,7 @@ void table::alterUser(int id)
 		if (id == it->getId())
 		{
             found = true;
-         //   cout << "User of name: " << it -> getName() << endl;
+            cout << "User of name: " << it -> getName() << endl;
             cout << "New entrance on monday: "; cin >> monEnter_new;
             cout << "New exit on monday: "; cin >> monExit_new;
             cout << "New entrance on tuesday: "; cin >> tueEnter_new;

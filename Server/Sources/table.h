@@ -1,4 +1,4 @@
-#include <string>
+//#include <string>
 #include <vector>
 #include <list>
 #include "user.cpp"
@@ -16,7 +16,7 @@ class table
                                                    int thuEnter, int thuExit,
                                                    int friEnter, int friExit,
                                                    int satEnter, int satExit,
-                                                   int sunEnter, int sunExit/*, string name*/);
+                                                   int sunEnter, int sunExit, std::string name);
     void excludeUser(int id);
     void consultUser(int id);
     void alterUser(int id);
