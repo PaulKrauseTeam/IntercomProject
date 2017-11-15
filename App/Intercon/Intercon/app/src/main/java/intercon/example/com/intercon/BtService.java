@@ -122,13 +122,6 @@ public class BtService extends Service {
                     out.write(to_send);
                 } catch (IOException e){}
             }
-            else if(msg.arg1 == 3) {
-                final byte[] send_bar = (byte[]) msg.obj;
-                try {
-                    out.write(send_bar);
-                } catch (IOException e) {
-                }
-            }
 
 
 
@@ -170,11 +163,7 @@ public class BtService extends Service {
         }
         if(intent.getIntExtra("message",0)== 2){
             msg.arg1 = intent.getIntExtra("message",0);
-            msg.obj = intent.getByteArrayExtra("effect");
-        }
-        else if(intent.getIntExtra("message",0) == 3) {
-            msg.arg1 = intent.getIntExtra("message", 0);
-            msg.obj = intent.getByteArrayExtra("bar_changed");
+            msg.obj = intent.getByteArrayExtra("ctrl_to_rasp");
         }
         mServiceHandler.sendMessage(msg);
 
