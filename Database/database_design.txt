@@ -1,28 +1,33 @@
 
-Users Table with all users. Columns:
-- ID (Primary Key);
-- Email;
-- Name;
-- Phone Number;
-- Status;
-- Entry Mon;
-- Entry Tue;
-- Entry Wed;
-- Entry Thu;
-- Entry Fri;
-- Entry Sat;
-- Entry Sun;
-- Exit Mon;
-- Exit Tue;
-- Exit Wed;
-- Exit Thu;
-- Exit Fri;
-- Exit Sat;
-- Exit Sun;
+users Table with all users;
+- id ( PK );
+- email;
+- name;
+- phone_number;
+- status;
 
-Each user will have a unique table for him, User History, that will store every time he enters and leaves the room. Columns:
-- ID (Primary Key);
-- Entry Date;
-- Entry Time;
-- Exit Date;
-- Exit Time;
+entry_permission table will have the time in each day, a specific user can entry the room;
+- user_id ( PK and FK to users (id) );
+- mon;
+- tue;
+- wed;
+- thu;
+- fri;
+- sat;
+- sun;
+
+exit_permission table will have the maximum time in each day that a user will be in the room;
+- user_id ( PK and FK to users (id) );
+- mon;
+- tue;
+- wed;
+- thu;
+- fri;
+- sat;
+- sun;
+
+users_history table, that will store every time a user enters and leaves the room;
+- id ( PK );
+- user_id ( FK to users (id) );
+- Entry;
+- Exit;
