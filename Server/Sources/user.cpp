@@ -145,7 +145,7 @@ int user::getSunExit()
 {
 	return sunExit;
 }
-string user::getName()
+std::string user::getName()
 {
     return name;
 }

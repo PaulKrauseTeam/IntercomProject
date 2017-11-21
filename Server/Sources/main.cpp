@@ -18,7 +18,7 @@ int main()
     int friEnter, friExit;
     int satEnter, satExit;
     int sunEnter, sunExit;
-	string name;
+	std::string name;
  //   string mail;
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
