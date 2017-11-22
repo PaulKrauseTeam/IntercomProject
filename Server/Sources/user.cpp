@@ -1,5 +1,5 @@
 #include "user.h"
-#include <string>
+//#include <string>
 #include <iostream>
 using namespace std;
 
@@ -72,10 +72,10 @@ void user::setSunExit(int sunExit_par)
 {
 	sunExit = sunExit_par;
 }     
-void user::setName(string name_par)
+/*void user::setName(string name_par)
 {
     name = name_par;
-}
+}*/
 int user::getId()
 {
     return id;
@@ -145,7 +145,7 @@ int user::getSunExit()
 {
 	return sunExit;
 }
-std::string user::getName()
+/*std::string user::getName()
 {
     return name;
-}
+}*/

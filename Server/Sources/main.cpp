@@ -1,6 +1,6 @@
 //#include "user.cpp"
 #include "table.cpp"
-#include <string>
+//#include <string>
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
@@ -18,7 +18,7 @@ int main()
     int friEnter, friExit;
     int satEnter, satExit;
     int sunEnter, sunExit;
-	std::string name;
+//	std::string name;
  //   string mail;
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
@@ -59,16 +59,16 @@ int main()
                  cout << "Type the exit time of saturday: "; cin >> satExit;
                  cout << "Type the entry time of sunday: "; cin >> sunEnter;
                  cout << "Type the exit time of sunday: "; cin >> sunExit;
-                 cout << "Type the name: ";
+               /*  cout << "Type the name: ";
                  cin.ignore();
-                 getline(cin,name);
+                 getline(cin,name);*/
                  regUser.includeUser(id,num,/*mail,*/ monEnter, monExit,
                                                   tueEnter, tueExit,
                                                   wedEnter, wedExit,
                                                   thuEnter, thuExit,
                                                   friEnter, friExit,
                                                   satEnter, satExit,
-                                                  sunEnter, sunExit, name);
+                                                  sunEnter, sunExit/*, name*/);
                  break;
              case 2:
                 cout << "\nType the Id of the user you wish to consult: "; cin >> id;

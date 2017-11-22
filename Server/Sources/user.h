@@ -1,4 +1,4 @@
-#include <string>
+//#include <string>
 #include <iostream>
 using namespace std;
 
@@ -24,7 +24,7 @@ class user
      int sunEnter;
      int sunExit;
 
-     std::string name = "name";
+   //  std::string name = "name";
      public:
      void setId(int id);
      void setNum(int num);
@@ -45,7 +45,7 @@ class user
      void setSunEnter(int sunEnter);
      void setSunExit(int sunExit);
      
-     void setName(std::string name);
+  //   void setName(std::string name);
      int getId();
      int getNum();
   //   string getMail();
@@ -65,5 +65,5 @@ class user
      int getSunEnter();
      int getSunExit();
      
-     std::string getName();
+ //    std::string getName();
 };
