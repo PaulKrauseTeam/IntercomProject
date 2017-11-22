@@ -6,7 +6,6 @@
     <string name="button4">Get Visible</string>
     <string name="button5">List Devices</string>
     <string name="button6">Disable</string>
-    <string name="button7">Get</string>
-    <string name="button8">Post</string>
+    <string name="button7">QRcode</string>
     <string name="textView">Paired Devices:</string>
 </resources>
