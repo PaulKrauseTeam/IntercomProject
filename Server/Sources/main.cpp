@@ -1,6 +1,4 @@
-//#include "user.cpp"
 #include "table.cpp"
-//#include <string>
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
@@ -18,8 +16,7 @@ int main()
     int friEnter, friExit;
     int satEnter, satExit;
     int sunEnter, sunExit;
-//	std::string name;
- //   string mail;
+
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
     do
@@ -33,6 +30,7 @@ int main()
          cout << "6. Exit" << endl;
          cout << "Type the desired option: ";
          cin >> option;
+         
          //Switch para direcionar a escolha aos metodos da classe CadAlunos
          switch (option)
          {
@@ -40,11 +38,7 @@ int main()
 
                  cout << "\nType the Id: "; cin >> id;
                  cout << "Type the phone number: "; cin >> num;
-     //            cout << "Type the e-mail: "; cin >> mail;
-                 //cin.ignore();
-                 //getline(cin,mail);
-                 //cout <<  mail << endl;
-                 cout << "Next section is the period\n Enter all like in the example:\n13h30 = 1330" << endl;
+                 cout << "\nNext section is the period\nEnter all like in the example:\n13h30 = 1330" << endl;
                  cout << "Type the entry time of monday: "; cin >> monEnter;
                  cout << "Type the exit time of monday: "; cin >> monExit;
                  cout << "Type the entry time of tuesday: "; cin >> tueEnter;
@@ -59,16 +53,14 @@ int main()
                  cout << "Type the exit time of saturday: "; cin >> satExit;
                  cout << "Type the entry time of sunday: "; cin >> sunEnter;
                  cout << "Type the exit time of sunday: "; cin >> sunExit;
-               /*  cout << "Type the name: ";
-                 cin.ignore();
-                 getline(cin,name);*/
-                 regUser.includeUser(id,num,/*mail,*/ monEnter, monExit,
-                                                  tueEnter, tueExit,
-                                                  wedEnter, wedExit,
-                                                  thuEnter, thuExit,
-                                                  friEnter, friExit,
-                                                  satEnter, satExit,
-                                                  sunEnter, sunExit/*, name*/);
+
+                 regUser.includeUser(id,num, monEnter, monExit,
+                                             tueEnter, tueExit,
+                                             wedEnter, wedExit,
+                                             thuEnter, thuExit,
+                                             friEnter, friExit,
+                                             satEnter, satExit,
+                                             sunEnter, sunExit);
                  break;
              case 2:
                 cout << "\nType the Id of the user you wish to consult: "; cin >> id;
@@ -92,6 +84,6 @@ int main()
              default:
                 cout << "\nThe chosen option doesn't exist! Try again! \n\n";
          }
-     } while(!Exit);
+     } while(Exit==0);
    return 0;
 }
