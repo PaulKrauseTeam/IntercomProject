@@ -8,7 +8,7 @@ table::table()
 {
 	list<user> lUsers;
 }
-//Metodo para a listagem dos users da list
+//Metodo para a listagem dos users da table
 void table::listUsers()
 {
     list<user>::iterator it;

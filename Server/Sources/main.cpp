@@ -2,6 +2,10 @@
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
+#include <sstream>
+#include <string>
+
+
 using namespace std;
 
 int main()
@@ -16,12 +20,13 @@ int main()
     int friEnter, friExit;
     int satEnter, satExit;
     int sunEnter, sunExit;
+    stringstream sendUser;
 
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
     do
      {
-         //Mostra todas as opções
+         //Show all options
          cout << "\n1. Register user" << endl;
          cout << "2. Consult user" << endl;
          cout << "3. List users" << endl;
@@ -30,8 +35,8 @@ int main()
          cout << "6. Exit" << endl;
          cout << "Type the desired option: ";
          cin >> option;
-         
-         //Switch para direcionar a escolha aos metodos da classe CadAlunos
+
+         //Switch to chose between the options
          switch (option)
          {
              case 1:
@@ -61,6 +66,16 @@ int main()
                                              friEnter, friExit,
                                              satEnter, satExit,
                                              sunEnter, sunExit);
+                 //String a ser enviada: sendUser.str()
+                 sendUser<<id<<";"<<num<<";"<<monEnter<<";"<<monExit<<";"
+                                            <<tueEnter<<";"<<tueExit<<";"
+                                            <<wedEnter<<";"<<wedExit<<";"
+                                            <<thuEnter<<";"<<thuExit<<";"
+                                            <<friEnter<<";"<<friExit<<";"
+                                            <<satEnter<<";"<<satExit<<";"
+                                            <<sunEnter<<";"<<sunExit<<";";
+                 //cout << sendUser.str() << endl;
+
                  break;
              case 2:
                 cout << "\nType the Id of the user you wish to consult: "; cin >> id;
