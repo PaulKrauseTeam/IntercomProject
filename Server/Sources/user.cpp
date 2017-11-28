@@ -10,6 +10,10 @@ void user::setNum(int num_par)
 {
     num = num_par;
 }
+void user::setStatus(int status_par)
+{
+    status = status_par;
+}
 int user::getId()
 {
     return id;
@@ -17,6 +21,10 @@ int user::getId()
 int user::getNum()
 {
     return num;
+}
+int user::getStatus()
+{
+    return status;
 }
 
 //Set period in and out

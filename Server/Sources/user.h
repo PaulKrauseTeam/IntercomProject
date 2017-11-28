@@ -6,6 +6,7 @@ class user
      private:
      int id;
      int num;
+     int status;
 
      //Days:
      int monEnter;
@@ -25,9 +26,11 @@ class user
 
      public:
      void setId(int id);
-     void setNum(int num);     
+     void setNum(int num);
+     void setStatus(int status);     
      int getId();
      int getNum();
+     int getStatus();
 
      //Set period in and out
      void setMonEnter(int monEnter);

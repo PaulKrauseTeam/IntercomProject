@@ -12,7 +12,7 @@ int main()
 {
 	bool Exit = false;
 	int option, id;
-	int num;
+	int num, status;
     int monEnter, monExit;
     int tueEnter, tueExit;
     int wedEnter, wedExit;
@@ -21,6 +21,9 @@ int main()
     int satEnter, satExit;
     int sunEnter, sunExit;
     stringstream sendUser;
+    stringstream sendEnter;
+    stringstream sendExit;
+
 
 	table regUser;
 	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
@@ -43,6 +46,7 @@ int main()
 
                  cout << "\nType the Id: "; cin >> id;
                  cout << "Type the phone number: "; cin >> num;
+                 cout << "Type the user's status (default 0): "; cin >> status;
                  cout << "\nNext section is the period\nEnter all like in the example:\n13h30 = 1330" << endl;
                  cout << "Type the entry time of monday: "; cin >> monEnter;
                  cout << "Type the exit time of monday: "; cin >> monExit;
@@ -59,22 +63,22 @@ int main()
                  cout << "Type the entry time of sunday: "; cin >> sunEnter;
                  cout << "Type the exit time of sunday: "; cin >> sunExit;
 
-                 regUser.includeUser(id,num, monEnter, monExit,
-                                             tueEnter, tueExit,
-                                             wedEnter, wedExit,
-                                             thuEnter, thuExit,
-                                             friEnter, friExit,
-                                             satEnter, satExit,
-                                             sunEnter, sunExit);
+                 regUser.includeUser(id,num, status, monEnter, monExit,
+                                                     tueEnter, tueExit,
+                                                     wedEnter, wedExit,
+                                                     thuEnter, thuExit,
+                                                     friEnter, friExit,
+                                                     satEnter, satExit,
+                                                     sunEnter, sunExit);
                  //String a ser enviada: sendUser.str()
-                 sendUser<<id<<";"<<num<<";"<<monEnter<<";"<<monExit<<";"
-                                            <<tueEnter<<";"<<tueExit<<";"
-                                            <<wedEnter<<";"<<wedExit<<";"
-                                            <<thuEnter<<";"<<thuExit<<";"
-                                            <<friEnter<<";"<<friExit<<";"
-                                            <<satEnter<<";"<<satExit<<";"
-                                            <<sunEnter<<";"<<sunExit<<";";
-                 //cout << sendUser.str() << endl;
+                 sendUser<<id<<","<<num<<","<<status<<",";
+                 sendEnter<<monEnter<<","<<tueEnter<<","<<wedEnter<<","<<thuEnter<<","
+                          <<friEnter<<","<<satEnter<<","<<sunEnter<<",";
+                 sendExit<<monExit<<","<<tueExit<<","<<wedExit<<","<<thuExit<<","
+                         <<friExit<<","<<satExit<<","<<sunExit<<",";
+                 cout << sendUser.str() << endl;
+                 cout << sendEnter.str() << endl;
+                 cout << sendExit.str() << endl;
 
                  break;
              case 2:
