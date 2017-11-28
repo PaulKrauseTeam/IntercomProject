@@ -9,7 +9,7 @@ using namespace std;
 string getUserTime(string str) {
     string user_time;
 
-    pqxx::connection c("dbname=intercom user=guilherme-fonseca");
+    pqxx::connection c("dbname=intercomdb user=raspberry");
     pqxx::work txn(c);
 
     time_t t = time(0);   // get time now

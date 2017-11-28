@@ -8,13 +8,13 @@ string insideUsers() {
   int lin;
   string users;
 
-  pqxx::connection c("dbname=intercom user=guilherme-fonseca");
+  pqxx::connection c("dbname=intercomdb user=raspberry");
   pqxx::work txn(c);
 
   pqxx::result r = txn.exec(
     "SELECT id, phone_number "
     "FROM users "
-    "WHERE status = '0'"
+    "WHERE status = '1'"
   );
 
   if (r.size() == 0) {
