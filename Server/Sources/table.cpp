@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <sstream>
+#include <string>
 using namespace std;
 
 table::table()
@@ -86,11 +88,14 @@ void table::excludeUser(int id)
 	list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
+	stringstream sendUser;
 
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
-		{
+		{	
+			sendUser<<id;
+			cout << sendUser.str() << endl;
 			lUsers.erase(it);
             cout << "User excluded!\n\n";
             found = true;
@@ -153,6 +158,10 @@ void table::alterUser(int id)
 	int satEnter_new, satExit_new;
 	int sunEnter_new, sunExit_new;
 	int num_new;
+	stringstream sendUser;
+    stringstream sendEnter;
+    stringstream sendExit;
+
 	
 	while(it != lUsers.end())
 	{
@@ -190,6 +199,18 @@ void table::alterUser(int id)
             it->setSatExit(satExit_new);
             it->setSunEnter(sunEnter_new);
             it->setSunExit(sunExit_new);
+
+            sendUser<<id<<", "<<num_new;
+            sendEnter<<id<<", "<<monEnter_new<<", "<<tueEnter_new<<", "
+            		 <<wedEnter_new<<", "<<thuEnter_new<<", "
+                     <<friEnter_new<<", "<<satEnter_new<<", "<<sunEnter_new;
+            sendExit<<id<<", "<<monExit_new<<", "<<tueExit_new<<", "
+            		<<wedExit_new<<", "<<thuExit_new<<", "
+                    <<friExit_new<<", "<<satExit_new<<", "<<sunExit_new;
+            cout << sendUser.str() << endl;
+            cout << sendEnter.str() << endl;
+            cout << sendExit.str() << endl;
+
 		}
 		it++;
 	}
