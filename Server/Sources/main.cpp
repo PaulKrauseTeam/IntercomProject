@@ -71,14 +71,14 @@ int main()
                                                      satEnter, satExit,
                                                      sunEnter, sunExit);
                  //String a ser enviada: sendUser.str()
-                 sendUser<<id<<","<<num<<","<<status<<",";
-                 sendEnter<<monEnter<<","<<tueEnter<<","<<wedEnter<<","<<thuEnter<<","
-                          <<friEnter<<","<<satEnter<<","<<sunEnter<<",";
-                 sendExit<<monExit<<","<<tueExit<<","<<wedExit<<","<<thuExit<<","
-                         <<friExit<<","<<satExit<<","<<sunExit<<",";
-                 /*cout << sendUser.str() << endl;
+                 sendUser<<id<<", "<<num<<", "<<status;
+                 sendEnter<<id<<", "<<monEnter<<", "<<tueEnter<<", "<<wedEnter<<", "<<thuEnter<<", "
+                          <<friEnter<<", "<<satEnter<<", "<<sunEnter;
+                 sendExit<<id<<", "<<monExit<<", "<<tueExit<<", "<<wedExit<<", "<<thuExit<<", "
+                         <<friExit<<", "<<satExit<<", "<<sunExit;
+                 cout << sendUser.str() << endl;
                  cout << sendEnter.str() << endl;
-                 cout << sendExit.str() << endl;*/
+                 cout << sendExit.str() << endl;
 
                  break;
              case 2:
