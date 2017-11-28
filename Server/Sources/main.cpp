@@ -75,9 +75,9 @@ int main()
                           <<friEnter<<", "<<satEnter<<", "<<sunEnter;
                  sendExit<<id<<", "<<monExit<<", "<<tueExit<<", "<<wedExit<<", "<<thuExit<<", "
                          <<friExit<<", "<<satExit<<", "<<sunExit;
-                 /*cout << sendUser.str() << endl;
+                 cout << sendUser.str() << endl;
                  cout << sendEnter.str() << endl;
-                 cout << sendExit.str() << endl;*/
+                 cout << sendExit.str() << endl;
 
                  break;
              case 2:
