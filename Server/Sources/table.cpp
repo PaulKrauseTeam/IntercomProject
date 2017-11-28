@@ -17,7 +17,6 @@ void table::listUsers()
 	{
  	   cout << "\nUser id: " << it->getId() << endl;
        cout << "Phone number: " << it->getNum() << endl;
-       cout << "Status: " <<it->getStatus() <<endl;
        cout << "Entrance on Monday: " << it->getMonEnter() << endl;
        cout << "Exit on Monday: " << it->getMonExit() << endl;
        cout << "Entrance on Tuesday: " << it->getTueEnter() << endl;
@@ -37,13 +36,13 @@ void table::listUsers()
 }
 //Metodo para a inclusao de users
 
-void table::includeUser(int id, int num, int status, int monEnter, int monExit,
-                                         			 int tueEnter, int tueExit,
-                                         			 int wedEnter, int wedExit,
-                                         			 int thuEnter, int thuExit,
-                                         			 int friEnter, int friExit,
-                                         			 int satEnter, int satExit,
-                                         			 int sunEnter, int sunExit)
+void table::includeUser(int id, int num, int monEnter, int monExit,
+                                         int tueEnter, int tueExit,
+                                         int wedEnter, int wedExit,
+                                         int thuEnter, int thuExit,
+                                         int friEnter, int friExit,
+                                         int satEnter, int satExit,
+                                         int sunEnter, int sunExit)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
@@ -63,7 +62,6 @@ void table::includeUser(int id, int num, int status, int monEnter, int monExit,
 	{
 		it->setId(id);
 		it->setNum(num);
-		it->setStatus(status);
 		it->setMonEnter(monEnter);
 		it->setMonExit(monExit);
 		it->setTueEnter(tueEnter);
@@ -117,7 +115,6 @@ void table::consultUser(int id)
 		if (id == it->getId())
 		{
             found = true;
-            cout << "Status: " << it->getStatus() << endl;
             cout << "Phone number: " << it->getNum() << endl;
             cout << "Entrance on Monday: " << it->getMonEnter() << endl;
             cout << "Exit on Monday: " << it->getMonExit() << endl;

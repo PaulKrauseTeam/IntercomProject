@@ -12,7 +12,7 @@ int main()
 {
 	bool Exit = false;
 	int option, id;
-	int num, status;
+	int num;
     int monEnter, monExit;
     int tueEnter, tueExit;
     int wedEnter, wedExit;
@@ -46,7 +46,6 @@ int main()
 
                  cout << "\nType the Id: "; cin >> id;
                  cout << "Type the phone number: "; cin >> num;
-                 cout << "Type the user's status (default 0): "; cin >> status;
                  cout << "\nNext section is the period\nEnter all like in the example:\n13h30 = 1330" << endl;
                  cout << "Type the entry time of monday: "; cin >> monEnter;
                  cout << "Type the exit time of monday: "; cin >> monExit;
@@ -63,22 +62,22 @@ int main()
                  cout << "Type the entry time of sunday: "; cin >> sunEnter;
                  cout << "Type the exit time of sunday: "; cin >> sunExit;
 
-                 regUser.includeUser(id,num, status, monEnter, monExit,
-                                                     tueEnter, tueExit,
-                                                     wedEnter, wedExit,
-                                                     thuEnter, thuExit,
-                                                     friEnter, friExit,
-                                                     satEnter, satExit,
-                                                     sunEnter, sunExit);
+                 regUser.includeUser(id,num, monEnter, monExit,
+                                             tueEnter, tueExit,
+                                             wedEnter, wedExit,
+                                             thuEnter, thuExit,
+                                             friEnter, friExit,
+                                             satEnter, satExit,
+                                             sunEnter, sunExit);
                  //String a ser enviada: sendUser.str()
-                 sendUser<<id<<", "<<num<<", "<<status;
+                 sendUser<<id<<", "<<num;
                  sendEnter<<id<<", "<<monEnter<<", "<<tueEnter<<", "<<wedEnter<<", "<<thuEnter<<", "
                           <<friEnter<<", "<<satEnter<<", "<<sunEnter;
                  sendExit<<id<<", "<<monExit<<", "<<tueExit<<", "<<wedExit<<", "<<thuExit<<", "
                          <<friExit<<", "<<satExit<<", "<<sunExit;
-                 cout << sendUser.str() << endl;
+                 /*cout << sendUser.str() << endl;
                  cout << sendEnter.str() << endl;
-                 cout << sendExit.str() << endl;
+                 cout << sendExit.str() << endl;*/
 
                  break;
              case 2:
