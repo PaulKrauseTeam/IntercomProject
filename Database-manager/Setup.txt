@@ -1,0 +1,64 @@
+/* INSTALL POSTGRESQL */
+
+$ sudo apt-get update
+$ sudo apt-get install postgresql postgresql-contrib
+
+
+/* CREATE DATABASE */
+
+$ sudo su - postgres
+$ createdb intercomdb
+$ createuser -P paul-krause
+$ (Enter password for new role:) cpp
+$ (Enter it again:) cpp
+$ psql intercomdb
+# GRANT ALL PRIVILEGES ON DATABASE intercomdb TO paulkrause;
+
+
+/* CREATE users TABLE */
+
+# CREATE TABLE users(
+id INTEGER NOT NULL,
+phone_number INTEGER NOT NULL,
+status BOOLEAN NOT NULL,
+PRIMARY KEY (id));
+
+
+/* CREATE entry_permission TABLE */
+
+# CREATE TABLE entry_permission(
+user_id INTEGER NOT NULL,
+mon TIMESTAMP NOT NULL,
+tue TIMESTAMP NOT NULL,
+wed TIMESTAMP NOT NULL,
+thu TIMESTAMP NOT NULL,
+fri TIMESTAMP NOT NULL,
+sat TIMESTAMP NOT NULL,
+sun TIMESTAMP NOT NULL,
+PRIMARY KEY (user_id),
+FOREIGN KEY (user_id) REFERENCES users(id));
+
+
+/* CREATE exit_permission TABLE */
+
+# CREATE TABLE exit_permission(
+user_id INTEGER NOT NULL,
+mon TIMESTAMP NOT NULL,
+tue TIMESTAMP NOT NULL,
+wed TIMESTAMP NOT NULL,
+thu TIMESTAMP NOT NULL,
+fri TIMESTAMP NOT NULL,
+sat TIMESTAMP NOT NULL,
+sun TIMESTAMP NOT NULL,
+PRIMARY KEY (user_id),
+FOREIGN KEY (user_id) REFERENCES users(id));
+
+/* CREATE users_history TABLE */
+
+# CREATE TABLE users_history(
+id SERIAL NOT NULL,
+user_id INTEGER NOT NULL,
+entry TIMESTAMP NOT NULL,
+exit TIMESTAMP NOT NULL,
+PRIMARY KEY (id),
+FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE);
