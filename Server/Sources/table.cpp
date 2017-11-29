@@ -1,26 +1,31 @@
 #include "table.h"
 #include <iostream>
-#include <string>
 #include <vector>
 #include <list>
+#include <sstream>
+#include <string>
+#include "newUser.cpp"
+#include "newEntry.cpp"
+#include "newExit.cpp"
+#include "deleteUser.cpp"
+#include "deleteEntry.cpp"
+#include "deleteExit.cpp"
 using namespace std;
 
 table::table()
 {
 	list<user> lUsers;
 }
-//Metodo para a listagem dos users da list
+//Metodo para a listagem dos users da table
 void table::listUsers()
 {
     list<user>::iterator it;
 	it = lUsers.begin();
 	while(it != lUsers.end())
 	{
- 	   cout << "\nName: " << it ->getName() << endl;
- 	   cout << "User id: " << it->getId() << endl;
+ 	   cout << "\nUser id: " << it->getId() << endl;
        cout << "Phone number: " << it->getNum() << endl;
-      // cout << "E-mail" << it->getMail() << endl;
-       cout << "\nEntrance on Monday: " << it->getMonEnter() << endl;
+       cout << "Entrance on Monday: " << it->getMonEnter() << endl;
        cout << "Exit on Monday: " << it->getMonExit() << endl;
        cout << "Entrance on Tuesday: " << it->getTueEnter() << endl;
        cout << "Exit on Tuesday: " << it->getTueExit() << endl;
@@ -34,24 +39,23 @@ void table::listUsers()
        cout << "Exit on Saturday: " << it->getSatExit() << endl;
        cout << "Entrance on Sunday: " << it->getSunEnter() << endl;
        cout << "Exit on Sunday: " << it->getSunExit() << endl;
-       it++;	
+       it++;
 	}
-	
 }
 //Metodo para a inclusao de users
 
-void table::includeUser(int id, int num, /*string mail, */int monEnter, int monExit,
-                                                   	  int tueEnter, int tueExit,
-                                                      int wedEnter, int wedExit,
-                                                      int thuEnter, int thuExit,
-                                                      int friEnter, int friExit,
-                                                      int satEnter, int satExit,
-                                                      int sunEnter, int sunExit, string name)
+void table::includeUser(int id, int num, int monEnter, int monExit,
+                                         int tueEnter, int tueExit,
+                                         int wedEnter, int wedExit,
+                                         int thuEnter, int thuExit,
+                                         int friEnter, int friExit,
+                                         int satEnter, int satExit,
+                                         int sunEnter, int sunExit)
 {
 	list<user>::iterator it;
 	it = lUsers.begin();
 	bool termina = false;
-	
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
@@ -61,12 +65,11 @@ void table::includeUser(int id, int num, /*string mail, */int monEnter, int monE
 		}
 		it++;
 	}
-		
+
 	if (!termina)
 	{
 		it->setId(id);
 		it->setNum(num);
-		//it->setMail(mail);
 		it->setMonEnter(monEnter);
 		it->setMonExit(monExit);
 		it->setTueEnter(tueEnter);
@@ -81,11 +84,9 @@ void table::includeUser(int id, int num, /*string mail, */int monEnter, int monE
 		it->setSatExit(satExit);
 		it->setSunEnter(sunEnter);
 		it->setSunExit(sunExit);
-		it->setName(name);
 		lUsers.push_front(*it);
 		cout << "User registered!" << endl;
 	}
-    
 }
 //Exclusao do user
 void table::excludeUser(int id)
@@ -93,11 +94,14 @@ void table::excludeUser(int id)
 	list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
-	
+	stringstream sendUser;
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
 		{
+			userId<<id;
+			cout << sendUser.str() << endl;
 			lUsers.erase(it);
             cout << "User excluded!\n\n";
             found = true;
@@ -107,9 +111,12 @@ void table::excludeUser(int id)
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	} 
-	
+		cout << "User not found! Try again.\n\n";
+	}
+
+  cout << delete_entry(userId.str()) << endl;
+  cout << delete_exit(userId.str()) << endl;
+  cout << delete_user(userId.str()) << endl;
 
 }
 //Consultar por id
@@ -118,15 +125,13 @@ void table::consultUser(int id)
  	list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
-	
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
 		{
             found = true;
-            cout << "Name: " << it->getName() << endl;
             cout << "Phone number: " << it->getNum() << endl;
-       //     cout << "E-mail: " << it->getMail() <<endl;
             cout << "Entrance on Monday: " << it->getMonEnter() << endl;
             cout << "Exit on Monday: " << it->getMonExit() << endl;
             cout << "Entrance on Tuesday: " << it->getTueEnter() << endl;
@@ -147,10 +152,8 @@ void table::consultUser(int id)
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	} 
-	
-	
+		cout << "User not found! Try again.\n\n";
+	}
 }
 //Alteracao do periodo e do contato
 void table::alterUser(int id)
@@ -166,14 +169,17 @@ void table::alterUser(int id)
 	int satEnter_new, satExit_new;
 	int sunEnter_new, sunExit_new;
 	int num_new;
-//	string mail_new;
-	
+	stringstream sendUser;
+  stringstream sendEnter;
+  stringstream sendExit;
+  stringstream userId;
+
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
 		{
             found = true;
-            cout << "User of name: " << it -> getName() << endl;
             cout << "New entrance on monday: "; cin >> monEnter_new;
             cout << "New exit on monday: "; cin >> monExit_new;
             cout << "New entrance on tuesday: "; cin >> tueEnter_new;
@@ -189,12 +195,8 @@ void table::alterUser(int id)
             cout << "New entrance on sunday: "; cin >> sunEnter_new;
             cout << "New exit on sunday: "; cin >> sunExit_new;
             cout << "New phone number: "; cin >> num_new;
-        //    cout << "New e-mail: "; cin >> mail_new;
-            //cin.ignore();
-            //getline(cin,mail_new);
-            
+
             it->setNum(num_new);
-         //   it->setMail(mail_new);
             it->setMonEnter(monEnter_new);
             it->setMonExit(monExit_new);
             it->setTueEnter(tueEnter_new);
@@ -209,12 +211,33 @@ void table::alterUser(int id)
             it->setSatExit(satExit_new);
             it->setSunEnter(sunEnter_new);
             it->setSunExit(sunExit_new);
+
+            userId<<id;
+            sendUser<<id<<", "<<num_new;
+            sendEnter<<id<<", "<<monEnter_new<<", "<<tueEnter_new<<", "
+            		 <<wedEnter_new<<", "<<thuEnter_new<<", "
+                     <<friEnter_new<<", "<<satEnter_new<<", "<<sunEnter_new;
+            sendExit<<id<<", "<<monExit_new<<", "<<tueExit_new<<", "
+            		<<wedExit_new<<", "<<thuExit_new<<", "
+                    <<friExit_new<<", "<<satExit_new<<", "<<sunExit_new;
+            cout << sendUser.str() << endl;
+            cout << sendEnter.str() << endl;
+            cout << sendExit.str() << endl;
+
+            cout << delete_entry(userId.str()) << endl;
+            cout << delete_exit(userId.str()) << endl;
+            cout << delete_user(userId.str()) << endl;
+
+            cout << new_entry(sendEnter.str()) << endl;
+            cout << new_exit(sendExit.str()) << endl;
+            cout << new_user(sendUser.str()) << endl;
+
 		}
 		it++;
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	} 
-		
+		cout << "User not found! Try again.\n\n";
+	}
+
 }
