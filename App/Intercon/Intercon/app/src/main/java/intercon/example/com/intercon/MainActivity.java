@@ -16,13 +16,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = (Button) findViewById(R.id.button);
         Button button2 = (Button) findViewById(R.id.button2);
-        final Intent btIntent = new Intent(this, Bluetooth.class);
+        final Intent lgIntent = new Intent(this, Bluetooth.class);
         final Intent wiIntent = new Intent(this,WIFI.class);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(btIntent);
+                startActivity(lgIntent);
             }
         });
         button2.setOnClickListener(new View.OnClickListener() {

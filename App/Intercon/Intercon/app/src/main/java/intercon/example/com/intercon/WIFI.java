@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -26,23 +27,26 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.zxing.Result;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
-public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultHandler{
+public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultHandler {
     public static final String TAG = "MyTag";
     private Looper mServiceLooper;
-    private RequestQueue postRequest,getRequest;
+    private RequestQueue postRequest, getRequest;
     private FileOutputStream outputStream;
     private String ServerAddr = "http://www.google.com";
     private ZXingScannerView mScannerView;
     private ListView mylistvew;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,10 +57,11 @@ public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultH
         thread.start();
         mServiceLooper = thread.getLooper();
         getRequest = Volley.newRequestQueue(this);
-        mylistvew = (ListView)findViewById(R.id.list_view);
+        mylistvew = (ListView) findViewById(R.id.list_view);
     }
-    public void QRcode(View v){
-        Toast.makeText(getBaseContext(),"Button CLicked",Toast.LENGTH_SHORT).show();
+
+    public void QRcode(View v) {
+        Toast.makeText(getBaseContext(), "Button CLicked", Toast.LENGTH_SHORT).show();
         mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view<br />
         setContentView(mScannerView);
         mScannerView.setResultHandler(this); // Register ourselves as a handler for scan results.<br />
@@ -66,18 +71,20 @@ public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultH
     }
 
     @Override
-    protected void onStop () {
+    protected void onStop() {
         super.onStop();
         if (getRequest != null) {
             getRequest.cancelAll(TAG);
         }
         mScannerView.stopCamera();   // Stop camera on pause
     }
-    JSONObject  myrecievedobj;
+
+    JSONObject myrecievedobj;
+
     @Override
     public void handleResult(Result rawResult) {
         mScannerView.stopCamera();
-        Log.e("Ola","Marilene");
+        Log.e("Ola", "Marilene");
         /*AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Resultado QR code");
                 builder.setMessage(rawResult.getText());
@@ -93,7 +100,7 @@ public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultH
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(getApplicationContext(), "Response is: "+ response.toString(),
+                        Toast.makeText(getApplicationContext(), "Response is: " + response.toString(),
                                 Toast.LENGTH_LONG).show();
                         myrecievedobj = response;
                     }
@@ -111,16 +118,29 @@ public class WIFI extends AppCompatActivity  implements ZXingScannerView.ResultH
         CreateListView(myrecievedobj);
         setContentView(R.layout.activity_wifi);
     }
-    public void CreateListView(JSONObject listContent){
+
+    public void CreateListView(JSONObject listContent) {
         try {
-            String firstItem = listContent.getString("title");
+            JSONObject obj = new JSONObject(listContent.toString());
+            JSONArray arr = obj.getJSONArray("id");
+            JSONArray arr2 = obj.getJSONArray("telefone");
+            ArrayList<String> listdata = new ArrayList<String>();
+            if (arr != null) {
+                for (int i = 0; i < arr.length(); i++) {
+                    listdata.add(arr.getString(i));
+                }
+            }
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    listdata);
+
+            mylistvew.setAdapter(arrayAdapter);
         } catch(org.json.JSONException e){
-            Toast.makeText(getApplicationContext(), e.toString(),
-                    Toast.LENGTH_LONG).show();
 
         }
+
+
     }
-
-
 }
 
