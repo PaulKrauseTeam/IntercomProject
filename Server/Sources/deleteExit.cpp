@@ -5,15 +5,15 @@
 
 using namespace std;
 
-bool new_user(string str) {
+bool delete_exit(string str) {
   pqxx::connection c("dbname=intercomdb user=guilherme-fonseca");
   pqxx::work txn(c);
 
   try
   {
     pqxx::result r = txn.exec(
-      "INSERT INTO users (id, phone_number, status) "
-      "VALUES (" + str + ", false)"
+      "DELETE FROM exit_permission "
+      "WHERE user_id = " + str
     );
     txn.commit();
 
@@ -25,10 +25,4 @@ bool new_user(string str) {
 
     return false;
   }
-}
-
-int main(int, char* argv[]) {
-  new_user(argv[1]);
-
-  return 0;
 }

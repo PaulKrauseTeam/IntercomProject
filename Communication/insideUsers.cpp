@@ -36,9 +36,3 @@ string insideUsers() {
 
   return users;
 }
-
-int main() {
-  insideUsers();
-
-  return 0;
-}

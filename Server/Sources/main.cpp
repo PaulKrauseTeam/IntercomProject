@@ -5,7 +5,6 @@
 #include <sstream>
 #include <string>
 
-
 using namespace std;
 
 int main()
@@ -23,10 +22,11 @@ int main()
     stringstream sendUser;
     stringstream sendEnter;
     stringstream sendExit;
+    string User;
 
 
 	table regUser;
-	cout << "Program for registration of users of the room - EEL 510232 - UFSC 2017";
+	cout << "Program for registration of users of the room - EEL 7323 - UFSC 2017";
     do
      {
          //Show all options
@@ -75,9 +75,10 @@ int main()
                           <<friEnter<<", "<<satEnter<<", "<<sunEnter;
                  sendExit<<id<<", "<<monExit<<", "<<tueExit<<", "<<wedExit<<", "<<thuExit<<", "
                          <<friExit<<", "<<satExit<<", "<<sunExit;
-                 cout << sendUser.str() << endl;
-                 cout << sendEnter.str() << endl;
-                 cout << sendExit.str() << endl;
+
+                 cout << new_user(sendUser.str()) << endl;
+                 cout << new_entry(sendEnter.str()) << endl;
+                 cout << new_exit(sendExit.str()) << endl;
 
                  break;
              case 2:

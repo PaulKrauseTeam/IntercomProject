@@ -4,6 +4,12 @@
 #include <list>
 #include <sstream>
 #include <string>
+#include "newUser.cpp"
+#include "newEntry.cpp"
+#include "newExit.cpp"
+#include "deleteUser.cpp"
+#include "deleteEntry.cpp"
+#include "deleteExit.cpp"
 using namespace std;
 
 table::table()
@@ -33,8 +39,8 @@ void table::listUsers()
        cout << "Exit on Saturday: " << it->getSatExit() << endl;
        cout << "Entrance on Sunday: " << it->getSunEnter() << endl;
        cout << "Exit on Sunday: " << it->getSunExit() << endl;
-       it++;	
-	}	
+       it++;
+	}
 }
 //Metodo para a inclusao de users
 
@@ -49,7 +55,7 @@ void table::includeUser(int id, int num, int monEnter, int monExit,
 	list<user>::iterator it;
 	it = lUsers.begin();
 	bool termina = false;
-	
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
@@ -59,7 +65,7 @@ void table::includeUser(int id, int num, int monEnter, int monExit,
 		}
 		it++;
 	}
-		
+
 	if (!termina)
 	{
 		it->setId(id);
@@ -80,7 +86,7 @@ void table::includeUser(int id, int num, int monEnter, int monExit,
 		it->setSunExit(sunExit);
 		lUsers.push_front(*it);
 		cout << "User registered!" << endl;
-	}    
+	}
 }
 //Exclusao do user
 void table::excludeUser(int id)
@@ -93,8 +99,8 @@ void table::excludeUser(int id)
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
-		{	
-			sendUser<<id;
+		{
+			userId<<id;
 			cout << sendUser.str() << endl;
 			lUsers.erase(it);
             cout << "User excluded!\n\n";
@@ -105,8 +111,13 @@ void table::excludeUser(int id)
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	} 
+		cout << "User not found! Try again.\n\n";
+	}
+
+  cout << delete_entry(userId.str()) << endl;
+  cout << delete_exit(userId.str()) << endl;
+  cout << delete_user(userId.str()) << endl;
+
 }
 //Consultar por id
 void table::consultUser(int id)
@@ -114,7 +125,7 @@ void table::consultUser(int id)
  	list<user>::iterator it;
 	it = lUsers.begin();
 	bool found = false;
-	
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
@@ -141,8 +152,8 @@ void table::consultUser(int id)
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	}	
+		cout << "User not found! Try again.\n\n";
+	}
 }
 //Alteracao do periodo e do contato
 void table::alterUser(int id)
@@ -159,10 +170,11 @@ void table::alterUser(int id)
 	int sunEnter_new, sunExit_new;
 	int num_new;
 	stringstream sendUser;
-    stringstream sendEnter;
-    stringstream sendExit;
+  stringstream sendEnter;
+  stringstream sendExit;
+  stringstream userId;
 
-	
+
 	while(it != lUsers.end())
 	{
 		if (id == it->getId())
@@ -200,6 +212,7 @@ void table::alterUser(int id)
             it->setSunEnter(sunEnter_new);
             it->setSunExit(sunExit_new);
 
+            userId<<id;
             sendUser<<id<<", "<<num_new;
             sendEnter<<id<<", "<<monEnter_new<<", "<<tueEnter_new<<", "
             		 <<wedEnter_new<<", "<<thuEnter_new<<", "
@@ -211,12 +224,20 @@ void table::alterUser(int id)
             cout << sendEnter.str() << endl;
             cout << sendExit.str() << endl;
 
+            cout << delete_entry(userId.str()) << endl;
+            cout << delete_exit(userId.str()) << endl;
+            cout << delete_user(userId.str()) << endl;
+
+            cout << new_entry(sendEnter.str()) << endl;
+            cout << new_exit(sendExit.str()) << endl;
+            cout << new_user(sendUser.str()) << endl;
+
 		}
 		it++;
 	}
 	if (!found)
 	{
-		cout << "User not found! Try again.\n\n";	
-	} 
-		
+		cout << "User not found! Try again.\n\n";
+	}
+
 }

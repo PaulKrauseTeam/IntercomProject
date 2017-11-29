@@ -1,4 +1,4 @@
-#include <ctime>
+  #include <ctime>
 #include <iostream>
 #include <pqxx/pqxx>
 #include <string>
@@ -41,10 +41,4 @@ string getUserTime(string str) {
     // cout << user_time << endl;
 
     return user_time;
-}
-
-int main(int, char* argv[]) {
-  cout << getUserTime(argv[1]) << endl;
-
-  return 0;
 }
