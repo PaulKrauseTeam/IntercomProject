@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Intercom</string>
+    <string name="button1">Bluetooth</string>
+    <string name="button2">WI-FI</string>
+    <string name="button3">Enable</string>
+    <string name="button4">Get Visible</string>
+    <string name="button5">List Devices</string>
+    <string name="button6">Disable</string>
+    <string name="button7">QRcode</string>
+    <string name="textView">Paired Devices:</string>
 </resources>
